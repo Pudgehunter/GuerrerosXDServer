@@ -8,9 +8,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.util.UUID;
 
 public class Session extends Thread{
 	
+	private String id;
 	private Movimiento movimiento;
 	private BufferedWriter writer;
 	private Socket socket;
@@ -20,6 +22,7 @@ public class Session extends Thread{
 	public Session(Socket socket) {
 		this.socket = socket;
 		movimiento = new Movimiento("",0,0);
+		this.id = UUID.randomUUID().toString();
 	}
 	
 	
@@ -106,5 +109,17 @@ public class Session extends Thread{
 	public void setJuego(Juego juego) {
 		this.juego = juego;
 	}
+
+
+	public String getID() {
+		return this.id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 	
 }

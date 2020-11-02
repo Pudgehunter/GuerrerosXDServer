@@ -23,11 +23,7 @@ public class Main extends PApplet {
 	public void draw() {
 		background(255);
 		controler.dibujarMapaControl();
-		text(mouseX + " : " + mouseY,mouseX,mouseY);
-	}
-	
-	public void keyPressed() {
-		controler.mover();
+		//text(mouseX + " : " + mouseY,mouseX,mouseY);
 	}
 	
 	public void mouseClicked() {

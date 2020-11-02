@@ -16,9 +16,6 @@ public class Control {
 	public void dibujarMapaControl() {
 		logica.logicGame();
 	}
-	public void mover() {
-		logica.logicInteractive();
-	}
 	
 	public void click() {
 		logica.mouseClicked();

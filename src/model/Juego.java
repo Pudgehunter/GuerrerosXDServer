@@ -330,62 +330,72 @@ public class Juego {
 	}
 	
 	public void anilloXDPowerClick() {
-		
-		if(anilloPowerOne == true) {
-			anilloDisparo.add(new AnilloPower(playerOneMX*100,playerOneMY*100,app,playerOneMX,playerOneMY));
+		for (int i = 0; i < tcplauncher.getSessions().size(); i++) {
+			Session session = tcplauncher.getSessions().get(0);
+			Session session2 = tcplauncher.getSessions().get(1);
+		if("atacar".equals(session.getMovimiento().getAtacar())){
+			if(anilloPowerOne == true) {
+				anilloDisparo.add(new AnilloPower(playerOneMX*100,playerOneMY*100,app,playerOneMX,playerOneMY));
+			}
 		}
-		if(anilloPowerTwo == true) {
-			anilloDisparo.add(new AnilloPower(playerTwoMX*100,playerTwoMY*100,app,playerTwoMX,playerTwoMY));
+		if("atacar".equals(session.getMovimiento().getAtacar())) {
+			if(anilloPowerTwo == true) {
+				anilloDisparo.add(new AnilloPower(playerTwoMX*100,playerTwoMY*100,app,playerTwoMX,playerTwoMY));
+				}
+			}
 		}
 	}
 	
 	
 	public void moverMuñeco() {
 		for (int i = 0; i < tcplauncher.getSessions().size(); i++) {
-			Session session = tcplauncher.getSessions().get(i);
-		if("arriba".equals(session.getMovimiento().getAtacar())) {
+			Session session = tcplauncher.getSessions().get(0);
+			Session session2 = tcplauncher.getSessions().get(1);
+		if("arriba".equals(session.getMovimiento().getAtacar()) && matrizMapa[playerOneMX][playerOneMY - 1] != 0) {
 			playerOneMY = playerOneMY - 1;
-			jugadorUno.moverArriba();
+			jugadorUno.setPosY(jugadorUno.getPosY() - session.getMovimiento().getPosY());
+			//jugadorUno.moverArriba();
 			validarAldeanosJugadorUno();
 			validarPower();
 		}
-		if("abajo".equals(session.getMovimiento().getAtacar())) {
+		if("abajo".equals(session.getMovimiento().getAtacar()) && matrizMapa[playerOneMX][playerOneMY + 1] != 0) {
 			playerOneMY = playerOneMY + 1;
-			jugadorUno.moverAbajo();
+			jugadorUno.setPosY(jugadorUno.getPosY() + session.getMovimiento().getPosY());
+			//jugadorUno.moverAbajo();
 			validarAldeanosJugadorUno();
 			validarPower();
 			}
-		if("derecha".equals(session.getMovimiento().getAtacar())) {
+		if("derecha".equals(session.getMovimiento().getAtacar()) && matrizMapa[playerOneMX + 1][playerOneMY] != 0) {	
 			playerOneMX = playerOneMX + 1;
 			jugadorUno.moverDerecha();
 			validarAldeanosJugadorUno();
 			validarPower();
 			}
-		if("izquierda".equals(session.getMovimiento().getAtacar())) {
+		if("izquierda".equals(session.getMovimiento().getAtacar()) && matrizMapa[playerOneMX - 1][playerOneMY] != 0) {
 			playerOneMX = playerOneMX - 1;
 			jugadorUno.moverIzquierda();
 			validarAldeanosJugadorUno();
 			validarPower();
 			}
-		if((app.key == 'w' || app.key == 'W') && matrizMapa[playerTwoMX][playerTwoMY - 1] != 0) {
+		if("arriba".equals(session2.getMovimiento().getAtacar()) && matrizMapa[playerTwoMX][playerTwoMY - 1] != 0) {
 			playerTwoMY = playerTwoMY - 1;
 			jugadorDos.moverArriba();
 			validarAldeanosJugadorDos();
 			validarPower();
 			}
-		if((app.key == 's' || app.key == 'S') && matrizMapa[playerTwoMX][playerTwoMY + 1] != 0) {
+		if("abajo".equals(session2.getMovimiento().getAtacar()) && matrizMapa[playerTwoMX][playerTwoMY + 1] != 0) {
 			playerTwoMY = playerTwoMY + 1;
 			jugadorDos.moverAbajo();
 			validarAldeanosJugadorDos();
 			validarPower();
 			}
-		if((app.key == 'd' || app.key == 'D') && matrizMapa[playerTwoMX + 1][playerTwoMY] != 0) {
+		if("derecha".equals(session2.getMovimiento().getAtacar()) && matrizMapa[playerTwoMX + 1][playerTwoMY] != 0) {
 			playerTwoMX = playerTwoMX + 1;
 			jugadorDos.moverDerecha();
 			validarAldeanosJugadorDos();
 			validarPower();
 		}
-		if((app.key == 'a' || app.key == 'A') && matrizMapa[playerTwoMX - 1][playerTwoMY] != 0) {
+		if("izquierda".equals(session2.getMovimiento().getAtacar()) && matrizMapa[playerTwoMX - 1][playerTwoMY] != 0) {
 			playerTwoMX = playerTwoMX - 1;
 			jugadorDos.moverIzquierda();
 			validarAldeanosJugadorDos();

@@ -102,6 +102,7 @@ public class Logica {
 			juegos.anilloXDPower();
 			juegos.validarWinner();
 			juegos.moverMuñeco();
+			juegos.anilloXDPowerClick();
 			if(juegos.isGanoJugadorUno() == true) {
 				pantalla = 4;
 			}
@@ -110,37 +111,12 @@ public class Logica {
 			}
 			break;
 		case 4:
-			app.background(0);
 			if(juegos.isGanoJugadorUno() == true) {
 				app.text("ganador jugador Uno!!!",250,250);
 			}
 			if(juegos.isGanoJugadorDos() == true) {
 				app.text("ganador jugador Dos!!!",250,250);
 			}
-			break;
-		}
-	}
-	
-	public void logicInteractive() {
-		//Se puede manejarlo en el mouse hasta el juego donde se valida los celulares
-		switch(pantalla) {
-			//pantalla Inicial
-		case 0:
-			break;
-			//Pantalla Conexiones
-		case 1:
-			
-			break;
-		case 2:
-			//pantalla Intro
-			break;
-			//Pantalla Juego
-		case 3:
-			//La mayoria de las cosas ya lo manipula los celulares entonces no es necesario poner datos aqui
-			
-			break;
-		case 4:
-			
 			break;
 		}
 	}
@@ -169,13 +145,13 @@ public class Logica {
 			case 1:
 				if(app.mouseX > 1094 && app.mouseX< 1165 && app.mouseY > 634 && app.mouseY < 676) {
 					pantalla = 0;
+					instruccionesPantalla = 0;
 				}
 				break;
 			}
 			
 			break;
 		case 3:
-			juegos.anilloXDPowerClick();
 			break;
 		case 4:
 			
