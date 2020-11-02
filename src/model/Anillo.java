@@ -7,14 +7,18 @@ public class Anillo {
 	
 	private PApplet app;
 	private PImage anilloImage;
+	private int posX,posY;
 	
-	public Anillo(PApplet app) {
+	public Anillo(int posX,int posY, PApplet app) {
+		this.posX = posX;
+		this.posY = posY;
 		this.app = app;
-		//this.anilloImage = app.loadImage("img/Anillo.png");
+		this.anilloImage = app.loadImage("../img/anillo.png");
 	}
 	
 	public void dibujarAnillo() {
-		//app.image(anilloImage, posX, posY);
+		//app.rect(posX,posY,50,50);
+		app.image(anilloImage, posX, posY,75,75);
 	}
 
 }

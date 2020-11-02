@@ -9,7 +9,7 @@ public class Aldeanos extends Personajes {
 	}
 	
 	public void dibujarPersonaje() {
-		app.image(personaje[0],0,0,50,50);
-		app.image(personaje[1],50,0,50,50);
+		app.image(personaje[0],posX,posY,60,85);
+		app.image(personaje[1],posX+20,posY+20,60,85);
 	}
 }

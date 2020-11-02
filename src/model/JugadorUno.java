@@ -9,7 +9,7 @@ public class JugadorUno extends Personajes{
 	}
 	
 	public void dibujarPersonaje() {
-		app.image(personaje[2],100,50,50,100);
+		app.image(personaje[2],posX,posY,75,100);
 	}
 	
 	
